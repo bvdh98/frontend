@@ -1,4 +1,5 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Card } from "react-bootstrap";
 import "./App.css";
 
 const API_URL = "http://localhost:3000/api/v1/people";
@@ -13,9 +14,13 @@ function App() {
   }, []);
   const [people, setPeople] = useState([]);
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <Container>
+      <Row>
+        <Card className="col-10 content">
+          <h1>Car user form</h1>
+        </Card>
+      </Row>
+    </Container>
   );
 }
 
