@@ -1,0 +1,6 @@
+.input_container{
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
