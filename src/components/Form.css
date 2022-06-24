@@ -4,3 +4,9 @@
     flex-direction: column;
     justify-content: left;
 }
+
+.dropdown{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 2rem;
+}
