@@ -8,8 +8,7 @@ const API_URL = "http://localhost:3000/api/v1/people";
 
 const getData = () => {
   const options = {
-    headers: new Headers({ "content-type": "application/json" }),
-    mode: "no-cors"
+    headers: new Headers({ "Accept": "application/json" })
   };
   return fetch(API_URL, options).then(res => res.json());
 };
