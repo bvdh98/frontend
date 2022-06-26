@@ -9,7 +9,7 @@ const PersonForm = ({dispatch}) => {
       <InputField placeholder={"first_name"} dispatch={dispatch}></InputField>
       <InputField placeholder={"last_name"} dispatch={dispatch}></InputField>
       <InputField placeholder={"email"} dispatch={dispatch}></InputField>
-      <button className="btn btn-primary col-2" onClick={()=>{}}>Add person</button>
+      <button className="btn btn-primary col-2" onClick={()=>{dispatch({type:"add person"})}}>Add person</button>
     </div>
   );
 };
