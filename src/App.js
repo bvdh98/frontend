@@ -4,21 +4,8 @@ import "./App.css";
 import PersonForm from "./components/PersonForm";
 import CarForm from "./components/CarForm";
 import MainContextProvider from "./components/MainContextProvider";
-
-// const API_URL = "http://localhost:3000/api/v1/people";
-
-// const getData = () => {
-//   const options = {
-//     headers: new Headers({ "Accept": "application/json" })
-//   };
-//   return fetch(API_URL, options).then(res => res.json());
-// };
-
+import PeopleContainer from "./components/PeopleContainer";
 const App = () => {
-  // useEffect(() => {
-  //   getData().then(people => console.log(people));
-  // }, []);
-  const [people, setPeople] = useState([]);
   return (
     <Container>
       <Row>
@@ -28,6 +15,7 @@ const App = () => {
             <PersonForm>
             </PersonForm>
             <CarForm></CarForm>
+            <PeopleContainer></PeopleContainer>
           </MainContextProvider>
         </Card>
       </Row>

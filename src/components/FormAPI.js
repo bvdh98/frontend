@@ -14,3 +14,11 @@ export const postPerson = async (person) => {
             console.log("Error: ", error);
         });
 }
+
+export const getPeople = async () => {
+    const url = endPoint + "/people"
+    const options = {
+        headers: new Headers({ "Accept": "application/json" })
+    };
+    return fetch(url, options).then(res => res.json().then(data => data));
+}
