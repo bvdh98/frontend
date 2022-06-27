@@ -3,8 +3,7 @@ import { Container, Row, Card } from "react-bootstrap";
 import "./App.css";
 import PersonForm from "./components/PersonForm";
 import CarForm from "./components/CarForm";
-import MainContext from "./components/MainContent";
-import MainContent from "./components/MainContent";
+import MainContextProvider from "./components/MainContextProvider";
 
 // const API_URL = "http://localhost:3000/api/v1/people";
 
@@ -25,7 +24,11 @@ const App = () => {
       <Row>
         <Card className="col-10 content">
           <h1>Car User Form</h1>
-          <MainContent></MainContent>
+          <MainContextProvider>
+            <PersonForm>
+            </PersonForm>
+            <CarForm></CarForm>
+          </MainContextProvider>
         </Card>
       </Row>
     </Container>

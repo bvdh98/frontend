@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useMainContext } from "./MainContextProvider";
 
-export const InputField = ({ placeholder, dispatch }) => {
+export const InputField = ({ placeholder}) => {
+  const {dispatch} = useMainContext();
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend" />

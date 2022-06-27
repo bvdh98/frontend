@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { createContext, useContext,useEffect } from 'react'
 import PersonForm from './PersonForm'
 import CarForm from './CarForm'
 import { useReducer } from 'react'
+import { postPerson } from './FormAPI'
+
+const MainContext = createContext();
+
+export const useMainContext = () => {
+  return useContext(MainContext);
+};
 
 const defaultState = {
   person: {
@@ -12,22 +19,6 @@ const defaultState = {
   car: { year: 0, price: 0, brand: "", person: null }
 }
 
-const endPoint = "http://localhost:3000/api/v1"
-
-const postPerson = async (person) => {
-  const url = endPoint + "/people"
-  console.log(JSON.stringify({ person, }))
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ person, })
-  }).then((response) => response.json())
-    .catch((error) => {
-      console.log("Error: ", error);
-    });
-}
 const reducer = (state, action) => {
   if (action.type === "first_name entered") {
     return {
@@ -66,7 +57,7 @@ const reducer = (state, action) => {
     };
   }
   else if (action.type === "add person") {
-    postPerson(state.person)
+    const result = postPerson(state.person)
     return {
       ...state
     };
@@ -76,14 +67,14 @@ const reducer = (state, action) => {
   }
 }
 
-const MainContent = () => {
+const MainContextProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
+  const value = { state, dispatch };
   return (
-    <>
-      <PersonForm dispatch={dispatch} />
-      <CarForm dispatch={dispatch} />
-    </>
+    <MainContext.Provider value={value}>
+      {children}
+    </MainContext.Provider>
   )
 }
 
-export default MainContent
+export default MainContextProvider

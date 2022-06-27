@@ -2,13 +2,13 @@ import React from "react";
 import { InputField } from "./InputField";
 import "./Form.css";
 
-const CarForm = ({dispatch}) => {
+const CarForm = () => {
   return (
     <div className="input_container col-10">
       <h4>Car:</h4>
-      <InputField placeholder={"Year"} dispatch={dispatch}/>
-      <InputField placeholder={"Brand"} dispatch={dispatch}/>
-      <InputField placeholder={"Price"} dispatch={dispatch}/>
+      <InputField placeholder={"Year"}/>
+      <InputField placeholder={"Brand"}/>
+      <InputField placeholder={"Price"}/>
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
