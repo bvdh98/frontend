@@ -6,7 +6,6 @@ const PeopleContainer = () => {
     const { state } = useMainContext()
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        console.log(state.people)
         if (state.people) {
             setIsLoading(false)
         }
